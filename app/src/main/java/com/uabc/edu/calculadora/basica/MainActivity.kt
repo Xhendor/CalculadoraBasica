@@ -22,24 +22,34 @@ class MainActivity : AppCompatActivity(),Operaciones,View.OnClickListener {
 
     override fun onClick(origen: View?) {
 
-        if(origen==suma){
-            resultado.text=suma(1f,3f).toString()
+       /*Modo conocido tipo IF/ELSE
+
+       if(origen==suma){
+            resultado.text=suma( numeroA.text.toString().toFloat(),numeroB.text.toString().toFloat()).toString()
         }else if(origen==mult){
-            System.err.println("Mult")
+            resultado.text=multiplicacion( numeroA.text.toString().toFloat(),numeroB.text.toString().toFloat()).toString()
 
         }else if(origen==division){
-            System.err.println("Division")
+            resultado.text=division( numeroA.text.toString().toFloat(),numeroB.text.toString().toFloat()).toString()
 
 
         }else if(origen==porc){
 
-            System.err.println("Porc")
+            resultado.text=porcentaje( numeroA.text.toString().toFloat(),numeroB.text.toString().toFloat()).toString()
 
         }else if(origen==resta){
-            System.err.println("Resta")
+            resultado.text=resta( numeroA.text.toString().toFloat(),numeroB.text.toString().toFloat()).toString()
+        }*/
 
-
+        //MODO RECOMENDADO EN KOTLIN
+        when (origen) {
+            suma -> resultado.text=suma( numeroA.text.toString().toFloat(),numeroB.text.toString().toFloat()).toString()
+            mult -> resultado.text=multiplicacion( numeroA.text.toString().toFloat(),numeroB.text.toString().toFloat()).toString()
+            division -> resultado.text=division( numeroA.text.toString().toFloat(),numeroB.text.toString().toFloat()).toString()
+            porc -> resultado.text=porcentaje( numeroA.text.toString().toFloat(),numeroB.text.toString().toFloat()).toString()
+            resta -> resultado.text=resta( numeroA.text.toString().toFloat(),numeroB.text.toString().toFloat()).toString()
         }
+
     }
 
     override fun suma(valorA: Float, valorB: Float): Float {
